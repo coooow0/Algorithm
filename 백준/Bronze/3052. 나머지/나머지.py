@@ -1,6 +1,1 @@
-test = list()
-for i in range(10):
-    a = int(input())
-    test.append(a%42)
-test = set(test)
-print(len(test))
+print(len(set(int(input()) % 42 for _ in range(10))))
