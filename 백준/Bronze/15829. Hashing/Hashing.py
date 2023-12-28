@@ -9,4 +9,4 @@ list = list(str_L)
 result = 0
 for i in range(t):
     result += ((ord(list[i])-96) * pow(31, i))
-print(result)
+print(result%1234567891)
