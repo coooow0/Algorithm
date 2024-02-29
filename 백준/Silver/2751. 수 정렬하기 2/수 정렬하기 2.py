@@ -2,12 +2,11 @@ import sys
 
 input = sys.stdin.readline
 n = int(input())
-List = list()
+List = []
 
-for i in range(n):
-    a = int(input())
-    List.append(a)
+for _ in range(n):
+    List.append(int(input()))
 
 List.sort()
-for i in range(n):
-    print(List[i])
+
+print('\n'.join(map(str, List)))
