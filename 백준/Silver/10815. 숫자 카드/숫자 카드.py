@@ -3,19 +3,13 @@ import sys
 input = sys.stdin.readline
 
 n = int(input())
-n_arr =list(map(int, input().split()))
+n_arr =set(map(int, input().split()))
 
 m = int(input())
 m_arr = list(map(int, input().split()))
 
-dic = {}
 for i in m_arr:
-    dic[i] = 0
-
-for i in n_arr:
-    if i in dic:
-        dic[i] = 1
-
-for i in dic:
-    print(dic[i], end=' ')
-    
+    if i in n_arr:
+        print(1, end=' ')
+    else:
+        print(0, end=' ')
