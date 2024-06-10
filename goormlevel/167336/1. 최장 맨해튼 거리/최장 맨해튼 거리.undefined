@@ -1,0 +1,5 @@
+# -*- coding: utf-8 -*-
+# UTF-8 encoding when using korean
+arr = list(map(int, input().split()))
+arr.sort()
+print(abs(arr[0]-arr[2]) + abs(arr[1] - arr[3]))
