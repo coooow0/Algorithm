@@ -1,0 +1,21 @@
+# n = 행 m = 열
+row, col = map(int, input().split())
+arr = [['.' for i in range(col)] for j in range(row)]
+
+
+for i in range(0, row, 2):
+	for j in range(col):
+		arr[i][j] = '#'
+		
+arr[1][col-1] = '#'
+for i in range(1, row-2, 2):
+	if arr[i][col-1] == '#':
+		arr[i+2][0]='#'
+	else:
+		arr[i+2][col-1]='#'
+	
+
+for i in range(row):
+	for j in range(col):
+		print(arr[i][j], end='')
+	print()
