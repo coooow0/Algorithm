@@ -1,0 +1,18 @@
+# 코딩을 하면 코드가 통째로 지워짐
+# 키보드를 마지막으로 누른 후 c초 동안 유지되다가 c+1초가 되면 지워짐
+# 나 vs 콤푸타
+# 총 n번의 키보드는 누르는데, 몇 글자가 남았는가?
+
+import sys
+input = sys.stdin.readline
+n, second = map(int, input().split())
+
+arr=list(map(int, input().split()))
+
+answer = 1
+for i in range(n-1):
+	if arr[i+1] - arr[i] <= second:
+		answer += 1
+	if arr[i+1] - arr[i] > second:
+		answer = 1
+print(answer)
