@@ -1,0 +1,10 @@
+import sys
+input = sys.stdin.readline
+n = int(input())
+result = 0
+for i in range(n):
+    w, h = map(int, input().split())
+    if result < w * h:
+        result = w * h
+
+print(result)
