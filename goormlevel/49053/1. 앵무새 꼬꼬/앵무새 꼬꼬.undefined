@@ -1,0 +1,15 @@
+# 꼬꾜는 자음을 알아듣지 못함. 모음만 들아들음 모음: a, e, i, o, u
+n = int(input())
+
+for i in range(n):
+	answer = []
+	eng = input()
+	for arr in eng:
+		if arr in ['a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U']:
+			answer.append(arr)
+	if answer == []:
+		print("???")
+		continue
+	for j in answer:
+		print(j,end='')
+	print()
