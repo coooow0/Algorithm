@@ -1,0 +1,14 @@
+n = int(input())
+x = []
+y = []
+
+for i in range(n):
+	score = input()
+	if score == 'D': # 달구가 이겼을 때
+		x.append(score)
+	else: # 포닉스가 이겼을 때
+		y.append(score)
+	
+	if len(x) - len(y) == 2 or len(y) - len(x) == 2:
+		break
+print(str(len(x))+ ':' + str(len(y)))
