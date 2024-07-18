@@ -1,6 +1,7 @@
+import sys
+input = sys.stdin.readline
 import math
 n = int(input())
-result = [0 for i in range(n)]
 
 for i in range(n):
     n, m = map(int, input().split())
