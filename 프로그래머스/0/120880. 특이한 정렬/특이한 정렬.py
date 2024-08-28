@@ -1,29 +1,8 @@
 def solution(numlist, n):
-    numlist = [i - n for i in numlist]
-    numlist = sorted(numlist, key=abs)
-    
+    numlist.sort(key=lambda x: (abs(x - n), -x))
+    # x를 abs(x - n) 값에 따라 정렬. 동일할 경우 -x를 기준으로 정렬 
+    # 즉, 본래 x의 값이 클수록 우선순위가 높다. 
     answer = []
-    
-    while numlist:
-        if len(numlist) == 1: #하나만 남아있을 경우
-            answer.append(numlist[0] + n)
-            numlist.pop(0)
-            
-        elif abs(numlist[0]) == abs(numlist[1]): #절대값이 같을 경우
-            if numlist[0] > numlist[1]: # 원래 숫자가 큰 것이 앞에 있으면 sorted를 해도 앞에 있음
-                answer.append(numlist[0] + n)           
-                answer.append(numlist[1] + n)
-                numlist.pop(0)
-                numlist.pop(0)
-                
-            else:
-                answer.append(numlist[1] + n)
-                answer.append(numlist[0] + n )
-                numlist.pop(0)        
-                numlist.pop(0)
-            
-        else: # 절대값이 같지 않을 경우
-            answer.append(numlist[0] + n)
-            numlist.pop(0)
-            
-    return answer
+    for i in numlist:
+        answer.append(i)
+    return answer 
