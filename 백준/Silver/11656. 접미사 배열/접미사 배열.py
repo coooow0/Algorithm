@@ -1,12 +1,9 @@
 import sys
 input = sys.stdin.readline().rstrip
 s = input()
-arr = [''] * len(s)
+arr = []
 for i in range(len(s)):
-    answer = ''
-    for k in range(i, len(s)):
-        answer += s[k]
-    arr[i] = answer
+    arr.append(s[i::])
 arr.sort()
 for i in arr:
     print(i)
