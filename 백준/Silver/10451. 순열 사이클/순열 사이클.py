@@ -1,4 +1,6 @@
 # 순열 사이클
+import sys
+sys.setrecursionlimit(10 ** 6)
 
 def dfs(v):
     visited[v] = True
@@ -6,6 +8,8 @@ def dfs(v):
     for next in graph[v]:
         if not visited[next]:
             dfs(next)
+    
+
 
 tc = int(input())
 
