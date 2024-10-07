@@ -13,14 +13,11 @@ for _ in range(m):
     graph[col].append(row)
 visited = [False] * (n + 1)
 
-answer = 0
 
 def dfs(v):
-    global answer
-    answer += 1
     visited[v] = True
     for i in graph[v]:
         if not visited[i]:
             dfs(i)
 dfs(1)
-print(answer - 1) # 1번도 포함하기 때문에
+print(visited.count(True) - 1) # 1번도 포함하기 때문에
