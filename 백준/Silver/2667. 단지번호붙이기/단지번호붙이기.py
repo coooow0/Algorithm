@@ -31,7 +31,8 @@ for row in range(1, n + 1):
         arr.append(0) # 단지수에 따라서 늘어나기 때문에 추가해줌
             
 print(all_cnt)
-arr = [i for i in arr if i != 0] # 0을 삭제함
+
 arr.sort()
+arr = arr[-all_cnt:]
 for i in arr:
     print(i)
