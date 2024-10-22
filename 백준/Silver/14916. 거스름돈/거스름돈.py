@@ -1,10 +1,17 @@
-import sys
-input = sys.stdin.readline
-n = int(input().strip())
-dp = [0] * (100001)
-dp[1], dp[2], dp[3] = -1, 1, -1
-dp[4], dp[5], dp[6] = 2, 1, 3
-dp[7], dp[8] = 2, 4
-for i in range(9, n + 1):
-    dp[i] = dp[i - 5] + 1
-print(dp[n])
+n = int(input())
+
+cnt = 0
+
+if n == 1 or n == 3:
+    print(-1)
+    exit()
+    
+while n > 0:
+    if n % 5 == 0:
+        cnt += n // 5
+        n = n % 5
+        break
+    else:
+        n -= 2
+        cnt += 1   
+print(cnt)
