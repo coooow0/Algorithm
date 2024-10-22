@@ -1,4 +1,6 @@
-n = int(input())
+import sys
+input = sys.stdin.readline
+n = int(input().strip())
 dp = [0] * (100001)
 dp[1], dp[2], dp[3] = -1, 1, -1
 dp[4], dp[5], dp[6] = 2, 1, 3
