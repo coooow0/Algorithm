@@ -8,23 +8,17 @@ arr = [[0] * m] * n
 for i in range(n):
     arr[i] = list(map(int, input().split()))
 
+prefix = [[0] * (m + 1) for _ in range(n + 1)] #누적합 배열 
+
+for i in range(1, n + 1):
+    for j in range(1, m + 1):
+        prefix[i][j] = arr[i - 1][j - 1] + prefix[i - 1][j] + prefix[i][j - 1] - prefix[i-1][j-1] 
+        # arr[i - 1][j - 1] 원본 배열의 값
+        # prefix[i-1][j-1] 중복 제거
+
 k = int(input())
-
 for _ in range(k):
-    res = 0
     i, j, x, y = list(map(int, input().split()))
-    if i == x:
-        for a in range(j - 1, y):
-            res += arr[i - 1][a]
-        print(res)
-
-    elif j == y:
-        for a in range(i - 1, x):
-            res += arr[a][j - 1]
-        print(res)
-
-    else:
-        for a in range(i - 1, x): # 행
-            for b in range(j - 1, y): # 열
-                res += arr[a][b]
-        print(res)
+    res = prefix[x][y] - prefix[i-1][y] - prefix[x][j-1] + prefix[i-1][j-1]
+    # prefix[i-1][y] -> 필요없는 행을 지움 prefix[x][j-1] -> 필요없는 열을 지움
+    print(res)
