@@ -1,24 +1,24 @@
 from collections import deque
-n, m = list(map(int, input().split()))
-# 큐의 크기 n, 뽑으려는 수의 개수 m
 
-arr = deque([i for i in range(1, n + 1)])
-num = list(map(int, input().split()))
+n, m = map(int, input().split())  # 큐 크기 n, 뽑을 수 개수 m
+arr = deque(range(1, n + 1))  # 원형 큐 초기화
+num = deque(map(int, input().split()))  # 뽑아야 하는 숫자 리스트
 
 cnt = 0
 
-while len(num) != 0:
-    if arr[0] == num[0]:
+while num:
+    target = arr.index(num[0])  # 찾을 숫자의 위치
+    if target == 0:  # 맨 앞에 있으면 바로 제거
         arr.popleft()
-        num.pop(0)
+        num.popleft()
     else:
-        target = arr.index(num[0])
-        # 빼야 하는 것의 위치를 구함
         if target > len(arr) - target:
-            # 더 적은 것을 선택해서 그만큼 rotate 함
+            # 오른쪽으로 회전 (뒤에서 앞으로 보내기)
             cnt += len(arr) - target
             arr.rotate(len(arr) - target)
         else:
+            # 왼쪽으로 회전 (앞에서 뒤로 보내기)
             cnt += target
             arr.rotate(-target)
+
 print(cnt)
