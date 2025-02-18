@@ -1,19 +1,17 @@
-import sys
-input = sys.stdin.readline
+n, m = list(map(int, input().split()))
+arr = list(map(int, input().split()))
 
-n, m = map(int, input().strip().split())
-arr = list(map(int, input().strip().split()))
-# arr의 i번째에서 j 번째까지 수의 합이 m이 되는 경우의 수
 
 cnt = 0
-
-for i in range(n):
-    s = 0
-    for k in range(i, n):
-        s += arr[k]
-        if s == m:
-            cnt += 1
-        elif s > m:
-            break
-            
+res = 0
+start = 0
+for end in range(n):
+    res += arr[end]
+    
+    while res > m: # res가 m을 초과하면 start부분에 있는 원소를 차례대로 제거함
+        res -= arr[start]
+        start += 1
+    
+    if res == m:
+        cnt += 1
 print(cnt)
