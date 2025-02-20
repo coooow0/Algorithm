@@ -1,7 +1,11 @@
 s = int(input())
-answer = 0
+# 서로 다른 n개의 자연수 합이 s.
+# s를 알 때 자연수 n의 최댓값은?
+ans = 0
 for i in range(1, 1000000):
-    answer += i
-    if answer > s:
-        print(i-1)
+    ans += i
+    
+    if ans > s:
+        print(i - 1) 
         break
+    
