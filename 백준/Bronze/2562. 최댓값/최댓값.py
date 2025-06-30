@@ -1,4 +1,11 @@
-a = [int(input()) for i in range(9)]
+arr = []
+m = 0
 
-print(max(a))
-print(a.index(max(a))+1)
+for i in range(9):
+    digit = int(input())
+    arr.append(digit)
+    if digit > m:
+        m = digit
+        
+print(m)
+print(arr.index(m) + 1)
