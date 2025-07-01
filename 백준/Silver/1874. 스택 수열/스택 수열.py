@@ -1,26 +1,31 @@
-import sys
-n = int(sys.stdin.readline())
-count = 1 
+# 스택 
+
+
+n = int(input())
+
 stack = []
-result = []
+
+m = 1
+str = []
+
+s = True
 
 for _ in range(n):
-    num = int(sys.stdin.readline())
-    # 입력한 임의의 수열이 count보다 작으면 빠져나옴
-    # 예제를 보면 n=8, 임의의 수열 중 첫번째 수가 4임
-    # 그러면 카운트는 5가 되었을 때 빠져나옴
-    while count <= num:
-        stack.append(count)
-        result.append('+')
-        count += 1
+    a = int(input())
     
-    if stack[-1] == num:
+    while m <= a:
+        stack.append(m)
+        str.append('+')
+        m += 1
+    
+    if stack[-1] == a:
         stack.pop()
-        result.append('-')
-
+        str.append('-')
+        
     else:
-        print('NO')
-        break
-else :
-    for i in result:
+        s = False
+if s:
+    for i in str:
         print(i)
+else:
+    print("NO")
