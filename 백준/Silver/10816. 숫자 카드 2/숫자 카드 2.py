@@ -1,23 +1,26 @@
+# 숫자카드
 import sys
-
 input = sys.stdin.readline
+
 n = int(input())
-Narr = list(map(int, input().split()))
+arr = list(map(int, input().split()))
 
-m = int(sys.stdin.readline())
-Marr = list(map(int, input().split()))
+m = int(input())
+brr = list(map(int, input().split()))
 
-dic = {} # 사전형으로 찾기 
-# 만약 a['algo'] = 'rithm' 이면, print(a['algo'])시 rithm 이 출력됨
+dic = dict()
 
-for i in Narr:
-    if i in dic:
-        dic[i] += 1
+for a in arr:
+    if a in dic:
+        dic[a] += 1
     else:
-        dic[i] = 1
-
-for i in Marr:
-    if i in dic:
-        print(dic[i], end=' ')
+        dic[a] = 1 
+        # 1로 초기화를 시킴.. 있으니께
+        # arr과 brr에 겹치는 숫자 카드의 개수를 나타내야되니까.. 다 세버림
+        # list.count()는 O(n) 이라서... 안된다는데 비슷한 거 같음데
+    
+for b in brr:
+    if b in dic:
+        print(dic[b], end =" ")
     else:
-        print(0, end=' ')
+        print(0, end=" ")
