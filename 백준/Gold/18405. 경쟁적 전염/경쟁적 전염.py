@@ -1,6 +1,6 @@
 from collections import deque
 import sys
-
+print = sys.stdout.write
 input = sys.stdin.readline
 
 d = [(-1, 0),(1, 0), (0, -1), (0, 1)]
@@ -39,4 +39,4 @@ while queue:
                 queue.append((v_num, new_r, new_c, time + 1))
                 # 현 위치의 바이러스 번호와 탐색할 다음위치, 시간을 입력받음
  
-print(graph[r - 1][c - 1])
+print(str(graph[r - 1][c - 1]))
