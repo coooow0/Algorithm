@@ -44,7 +44,7 @@ def dijkstra(start):
                 distance[next] = new_v
     return distance
 
-d1 = dijkstra(1) # 1 -> 모든 정점
+d1 = dijkstra(1) # 1 -> 모든 정점 한
 
 d2 = dijkstra(must_a) # must_a -> 나머지 정점 최단 
 d3 = dijkstra(must_b) # must_b -> 나머지 정점 최단
