@@ -1,24 +1,29 @@
 import sys
 input = sys.stdin.readline
 
-p = 'I'
-ps = 'OI'
+n = int(input().strip()) # IOI
+m = int(input().strip()) # 문자열 길이
 
-n = int(input().strip())
-m = int(input().strip())
+i = 'I'
+oi = 'OI' * n
+line = i + oi
 
-p = p + ps * n
+arr = input().strip()
 
-arr = list(input().strip())
+i = 0
 
 cnt = 0
+ans = 0
 
-for i in range(m-len(p) + 1):
-    line = ''
-    for k in arr[i:i+len(p)]:
-        line += k
-        
-    if line == p:
+while i <= m - 3:
+    if arr[i:i+3] == 'IOI':
         cnt += 1
-    
-print(cnt)
+        i += 2
+        if cnt == n:
+            ans += 1
+            cnt -= 1
+            
+    else:
+        i += 1
+        cnt = 0
+print(ans)
