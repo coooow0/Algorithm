@@ -1,17 +1,18 @@
-n, m = list(map(int, input().split()))
-arr = list(map(int, input().split()))
-
-
-cnt = 0
-res = 0
+n, m = map(int, input().strip().split())
+arr = list(map(int, input().strip().split()))
+res = 0 # 최종 출력하는 겂
 start = 0
+
+ans_sum = 0
 for end in range(n):
-    res += arr[end]
+    ans_sum += arr[end]
     
-    while res > m: # res가 m을 초과하면 start부분에 있는 원소를 차례대로 제거함
-        res -= arr[start]
+    while ans_sum > m:
+        ans_sum -= arr[start]
         start += 1
     
-    if res == m:
-        cnt += 1
-print(cnt)
+    if ans_sum == m:
+        res += 1
+    
+print(res)
+    
