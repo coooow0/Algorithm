@@ -1,8 +1,9 @@
 def solution(arr):
     answer = []
-    n = -1 # 전의 수
+    answer.append(arr[0])
     for i in arr:
-        if i != n:
+        if answer[-1] != i:
             answer.append(i)
-        n = i
+            
+
     return answer
