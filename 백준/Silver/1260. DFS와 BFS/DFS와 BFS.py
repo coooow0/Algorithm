@@ -1,41 +1,54 @@
-# DFS와 BFS
 import sys
-def DFS(idx):
-    global visited
-    visited[idx] = True # 방문 처리
-    print(idx, end=' ')
-    for next in range(1, n+1):
-        if not visited[next] and graph[next][idx]:
-            # 방문을 하지 않았고, 그래프에 위치가 True일 경우
-            DFS(next)
-
-def BFS():
-     global q, visited
-     while q:
-         cur = q.pop(0)
-         print(cur, end = ' ')
-         for next in range(1, n+1):
-             if not visited[next] and graph[cur][next]:
-                 visited[next] = True
-                 q.append(next)
-                 
-
+sys.setrecursionlimit(10**6)
 input = sys.stdin.readline
-n, m, v = map(int, input().split())
-graph = [[False] * (n + 1) for _ in range(n+1)]
-visited = [False] * (n+1)
 
-for _ in range(m): # 간선의 개수
-    a, b = map(int, input().split())
-    graph[a][b], graph[b][a] = True, True
-    # 정점을 있다고 표시함
+from collections import deque
+
+n, m, v = map(int, input().strip().split())
+
+graph = [[]for _ in range(n + 1)]
+
+for _ in range(m):
+    a, b = map(int, input().strip().split())
+    graph[a].append(b)
+    graph[b].append(a)
+
+for i in range(1, n + 1):
+    graph[i].sort()
+
+visited_dfs = [False for _ in range(n + 1)]
+visited_bfs = [False for _ in range(n + 1)]
+
+arr_dfs = []
+arr_bfs = []
+def dfs(start):
+    for next in graph[start]:
+        if not visited_dfs[next]:
+            visited_dfs[next] = True
+            arr_dfs.append(next)
+            dfs(next)
     
-DFS(v)
-print()
+    
 
-visited = [False] * (n+1)
-q = [v] 
-visited[v] = True # 이미 방문 처리를 함
-BFS()
+visited_dfs[v] = True
+arr_dfs.append(v)
+dfs(v)
 
+def bfs():
+    while queue:
+        start = queue.popleft()
+        arr_bfs.append(start)
+        
+        for next in graph[start]:
+            if not visited_bfs[next]:
+                visited_bfs[next] = True
+                queue.append(next)
 
+visited_bfs[v] = True
+queue = deque()
+queue.append(v)
+
+bfs()
+
+print(*arr_dfs)
+print(*arr_bfs)
