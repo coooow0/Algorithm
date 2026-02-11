@@ -1,13 +1,20 @@
-n = list(map(str, input().split('-')))
-# 1. -를 기준으로 나눔
-result = sum(list(map(int, n[0].split('+'))))
-# 2. 첫번쨰 값을 무조건 더함.. +가 있을 수 있으니 그걸로 나눠서!!
+import sys
+input = sys.stdin.readline
 
-if len(n) == 1:
-    # 부호 값이 모두 +인 경우
-    print(result)
-    exit()
-else:
-    for i in n[1:]:
-        result -= sum(list(map(int, i.split('+'))))
-    print(result)
+line = list(input().strip().split('-'))
+
+for i in range(len(line)):
+    nums = line[i].replace('+', ' ')
+    nums = list(map(int, nums.split(' ')))
+    if len(nums) == 1:
+        line[i] = int(nums[0])
+    else:
+        res = 0
+        for k in range(len(nums)):
+            res += int(nums[k])
+        line[i] = res
+    
+ans = line[0]
+for i in range(1, len(line)):
+    ans -= line[i]
+print(ans)
