@@ -1,0 +1,1 @@
+class Solution { public int[] solution(int[] a) { int even=0; for (int x:a) if (x%2==0) even++; return new int[]{even,a.length-even}; }}
