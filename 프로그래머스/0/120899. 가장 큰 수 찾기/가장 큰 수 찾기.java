@@ -1,0 +1,1 @@
+class Solution { public int[] solution(int[] array) { int k=0; for(int i=1;i<array.length;i++) if(array[i]>array[k]) k=i; return new int[]{array[k],k}; } }
