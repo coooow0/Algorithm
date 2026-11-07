@@ -1,0 +1,1 @@
+class Solution { public int[] solution(int n) { java.util.ArrayList<Integer> list=new java.util.ArrayList<>(); for(int i=1;i<=n;i++) if(n%i==0) list.add(i); return list.stream().mapToInt(Integer::intValue).toArray(); } }
