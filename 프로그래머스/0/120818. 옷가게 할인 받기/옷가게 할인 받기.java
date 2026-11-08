@@ -1,0 +1,1 @@
+class Solution { public int solution(int price) { int percent=price>=500000?80:price>=300000?90:price>=100000?95:100; return price*percent/100; } }
