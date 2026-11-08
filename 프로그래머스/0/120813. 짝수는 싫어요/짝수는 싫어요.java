@@ -1,0 +1,1 @@
+class Solution { public int[] solution(int n) { int[] a=new int[(n+1)/2]; for(int i=0;i<a.length;i++) a[i]=2*i+1; return a; } }
