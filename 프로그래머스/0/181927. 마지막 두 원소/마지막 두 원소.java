@@ -1,0 +1,1 @@
+class Solution { public int[] solution(int[] num_list) { int n=num_list.length; int[] a=java.util.Arrays.copyOf(num_list,n+1); a[n]=a[n-1]>a[n-2]?a[n-1]-a[n-2]:a[n-1]*2; return a; } }
