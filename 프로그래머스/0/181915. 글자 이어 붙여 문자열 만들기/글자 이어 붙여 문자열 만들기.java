@@ -1,0 +1,1 @@
+class Solution { public String solution(String my_string,int[] index_list) { StringBuilder b=new StringBuilder(); for(int i:index_list) b.append(my_string.charAt(i)); return b.toString(); } }
